@@ -69,8 +69,21 @@
             </accordion>
         </div>
     </div>
-    <div class="row">
-        <div class="table">
+    <div class="col-md-12">
+            <ul class="nav nav-tabs">
+              <li role="presentation" ng-class="{active: page=='overview'}"><a href="#/whatarewenotdoing/overview">Overview</a></li>
+              <li role="presentation" ng-class="{active: page=='scoreboard'}"><a href="#/whatarewenotdoing/scoreboard">Scoreboard</a></li>
+            </ul>
+        </div>
+
+    <div class="row" ng-show="page === 'overview'">
+        <div class="table col-md-12">
+            <h2>Overview</h2>
+        </div>
+    </div>
+
+    <div class="row" ng-show="page === 'scoreboard'">
+        <div class="table col-md-12">
             <div class="row">
                 <div class="col-md-4 text-center">
                     <h2><a ng-click="order='usPercentage'">Us</a></h2>

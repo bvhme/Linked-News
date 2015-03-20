@@ -8,9 +8,13 @@
  * Controller of the linkedNewsApp
  */
 angular.module('linkedNewsApp')
-    .controller('WhatarewenotdoingCtrl', ['juicer', 'ldp', '$scope', '$log',
-        function(juicer, ldp, $scope, $log) {
-            $log.debug('What we are not doing');
+    .controller('WhatarewenotdoingCtrl', ['juicer', '$routeParams', 'ldp', '$scope',
+        function(juicer, $routeParams, ldp, $scope) {
+            $scope.page = 'overview';
+
+            if ( $routeParams.page ) {
+                $scope.page = $routeParams.page
+            }
 
             // Choose a date range, set the default to the last 24 hours
             $scope.resetDate = function() {
