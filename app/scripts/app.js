@@ -32,6 +32,10 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/whatarewenotdoing/:page', {
+        templateUrl: 'views/whatarewenotdoing.html',
+        controller: 'WhatarewenotdoingCtrl'
+      })
       .when('/whatarewenotdoing', {
         templateUrl: 'views/whatarewenotdoing.html',
         controller: 'WhatarewenotdoingCtrl'
