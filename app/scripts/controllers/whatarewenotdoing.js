@@ -130,19 +130,6 @@ angular.module('linkedNewsApp')
             // Selector for the order the results will be in
             $scope.order = 'total';
 
-            // $scope.totalSourceItems = $scope.sources.length;
-            // $scope.currentSourcePage = 1;
-
-            // $scope.setSourcePage = function (pageNo) {
-            // 	$scope.currentPage = pageNo;
-            // };
-
-            // $scope.pageSourceChanged = function() {
-            // 	$log.log('Page changed to: ' + $scope.currentPage);
-            // };
-
-            // $scope.maxSourcePaginationsSize = 5;
-
             $scope.topics = {};
 
             function compareConceptsFromTwoSources() {
