@@ -1,15 +1,13 @@
 <div class="page-header row">
     <div class="container">
-        <h1>{{uri | urlToLabel}}</h1>
-        <h2>Topic related news insights from around the internet</h2>
+        <h1>Articles <small>on "{{uri | urlToLabel}}" from all sources</small></h1>
         <p>Sources: Juicer, [DBPedia]</p>
     </div>
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <h2>Articles about "{{uri | urlToLabel}}" from all sources</h2>
-            <p>The Juicer collects data from different sources by reading out and interpreting hundreds of feeds from around the world. Here are the most recent articles linked with the 'concept' of {{uri | urlToLabel}}.</p>
+        <div class="col-md-12 panel">
+            <p></p>
             <div ng-repeat="article in articles">
                 <div class="panel panel-default">
                     <div class="panel-heading">
