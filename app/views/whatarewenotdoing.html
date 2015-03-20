@@ -1,0 +1,106 @@
+<div class="page-header row">
+    <div class="container">
+        <h1>Us Versus Them</h1>
+        <h2>Analysing other media to find out where we are scoring and missing out</h2>
+        <p>Data Source: Juicer</p>
+    </div>
+</div>
+<!-- <div class="row">
+    <div class="col-md-12 jumbotron">
+        <p class="lead">This tool has not been build yet, what you see here is just a scaffolding</p>
+    </div>
+</div> -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <accordion>
+                <accordion-group heading="{{$parent.afterDate | date:'dd/MM/yy'}} &mdash; {{$parent.beforeDate | date:'dd/MM/yy'}}">
+                    <p class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="dd MMMM yyyy" ng-model="$parent.$parent.$parent.afterDate" is-open="$parent.$parent.$parent.openedAfter" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-change="$parent.$parent.$parent.compareConceptsFromTwoSources()" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openAfter($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                    <p class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="dd MMMM yyyy" ng-model="$parent.$parent.$parent.beforeDate" min-date="$parent.$parent.$parent.afterDate" is-open="$parent.$parent.$parent.openedBefore" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-change="$parent.$parent.$parent.compareConceptsFromTwoSources()" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="$parent.$parent.$parent.openBefore($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                    <p class="input-group pull-right">
+                        <button type="button" class="btn btn-default" ng-click="$parent.$parent.$parent.resetDate()">Reset</button>
+                    </p>
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="col-md-4">
+            <accordion>
+                <accordion-group heading="Options">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" ng-model="$parent.$parent.$parent.showUnderMedian">Show topics with results under the median {{$parent.$parent.$parent.median}}
+                            </label>
+                        </div>
+                    <button type="button" class="btn btn-primary btn-default btn-block" ng-click="compareConceptsFromTwoSources()" ng-hide="sources.length == 0">Reload results</button>
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="col-md-4">
+            <accordion>
+                <accordion-group heading="Compared to {{$parent.theirSources.length}} others">
+                    <p>A large amount of sources can break the server and then nothing comes back:</p>
+                    <!-- <pagination total-items="sources.length" items-per-page="10" ng-model="currentSourcePage" ng-change="pageChanged()" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="maxSourcePaginationsSize" ></pagination> -->
+                    <form ng-submit="selectSource(sourceInput)">
+                        <input type="text" typeahead="source.id as source.name for source in sources | filter:$viewValue | limitTo:8" class="form-control" ng-model="sourceInput">
+                    </form>
+                    <div class="sources">
+                        <div class="checkbox" ng-repeat="source in $parent.$parent.$parent.sources | orderObjectBy:'name':false" ng-show="theirSources.indexOf(source.id) > -1">
+                            <label>
+                                <input type="checkbox" value="{{source.id}}" ng-checked="theirSources.indexOf(source.id) > -1" ng-click="toggleSourceSelection(source.id)" > {{source.name}}
+                            </label>
+                        </div>
+                    </div>
+                    <p class="input-group">
+                        <button type="button" class="btn btn-sm btn-default" ng-click="$parent.$parent.$parent.selectNoSources()">Select None</button>
+                        <button type="button" class="btn btn-sm btn-default" ng-click="$parent.$parent.$parent.selectAllSources()">Select All</button>
+                        <button type="button" class="btn btn-sm btn-default" ng-click="$parent.$parent.$parent.resetSources()">Reset</button>
+                    </p>
+                </accordion-group>
+            </accordion>
+        </div>
+    </div>
+    <div class="row">
+        <div class="table">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <h2><a ng-click="order='usPercentage'">Us</a></h2>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h2><a ng-click="order='total'">Topic</a> <small>(Total)</small></h2>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h2><a ng-click="order='themPercentage'">Them</a></h2>
+                </div>
+            </div>
+            <div class="scoreboard" ng-repeat="topic in topics | orderObjectBy:order:true">
+                <div class="scoreboard row" ng-hide="!showUnderMedian && median >= topic.total">
+                    <div class="col-md-12 text-center">
+                        <h3><a href="#/topics/{{topic.id | encodeUriComponent}}">{{topic.id | urlToLabel}}</a> <small>({{(topic.total)}})</small></h3>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" style="width: {{topic.usPercentage}}%">
+                                {{topic.us}}
+                            </div>
+                            <div class="progress-bar progress-bar-info" style="width: {{topic.themPercentage}}%">
+                                {{topic.them}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>

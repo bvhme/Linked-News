@@ -1,0 +1,73 @@
+<div class="page-header row">
+    <div class="container">
+        <h1>{{uri | urlToLabel}}</h1>
+        <h2>Topic related news insights from around the internet</h2>
+        <p>Sources: Juicer, [DBPedia]</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Articles about "{{uri | urlToLabel}}" from all sources</h2>
+            <p>The Juicer collects data from different sources by reading out and interpreting hundreds of feeds from around the world. Here are the most recent articles linked with the 'concept' of {{uri | urlToLabel}}.</p>
+            <div ng-repeat="article in articles">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{article.published | date:'longDate'}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-8">
+                            <h2><a href="{{article.url}}">{{article.title}}</a></h2>
+                            <p class="lead">{{article.description}}</p>
+                            <div class="body" style="white-space: pre-line;">{{article.body}}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{{article.source["source-name"]}}</h3>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <p class="panel-title">Published</p>
+                                </div>
+                                <div class="panel-body">
+                                    <p>{{article.published | date:'longDate'}}</p>
+                                    <p>{{article.published | date:'mediumTime'}}</p>
+                                    <ul class="nav nav-pills nav-stacked" ng-show="article.authors.length !== 0">
+                                        <li class="presentation" ng-repeat="author in article.authors">By {{author}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <p class="panel-title">Associated topics</p>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li class="presentation" ng-repeat="concept in article.concepts"><a href="#/topics/{{concept.uri | encodeUriComponent}}">{{concept.label}}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">Linked data information</div>
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <td>uri</td>
+                        <td>{{uri}}</td>
+                    </tr>
+                    <tr>
+                        <td>Readable name abstracted from uri</td>
+                        <td>{{uri | urlToLabel}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,7 +16,11 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap',
+    'bbcjuicer',
+    'bbcldp',
+    'dbpedia'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -27,6 +31,14 @@ angular
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
+      })
+      .when('/whatarewenotdoing', {
+        templateUrl: 'views/whatarewenotdoing.html',
+        controller: 'WhatarewenotdoingCtrl'
+      })
+      .when('/topics/:topicId*', {
+        templateUrl: 'views/topic.html',
+        controller: 'TopicCtrl'
       })
       .otherwise({
         redirectTo: '/'

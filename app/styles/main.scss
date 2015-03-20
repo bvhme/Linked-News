@@ -69,7 +69,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit !default;
-$headings-font-weight:    500 !default;
+$headings-font-weight:    700 !default;
 $headings-line-height:    1.1 !default;
 $headings-color:          inherit !default;
 
@@ -149,7 +149,7 @@ $table-border-color:            #ddd !default;
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-$btn-font-weight:                normal !default;
+$btn-font-weight:                500 !default;
 
 $btn-default-color:              #333 !default;
 $btn-default-bg:                 #fff !default;
@@ -398,7 +398,7 @@ $navbar-inverse-border:                     none !default;
 
 // Inverted navbar links
 $navbar-inverse-link-color:                 $gray-darker !default;
-$navbar-inverse-link-hover-color:           lighten($navbar-inverse-link-color, 10%) !default;
+$navbar-inverse-link-hover-color:           $brand-primary !default;
 $navbar-inverse-link-hover-bg:              transparent !default;
 $navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color !default;
 $navbar-inverse-link-active-bg:             darken($navbar-inverse-bg, 10%) !default;
@@ -407,8 +407,8 @@ $navbar-inverse-link-disabled-bg:           transparent !default;
 
 // Inverted navbar brand label
 $navbar-inverse-brand-color:                $navbar-inverse-link-color !default;
-$navbar-inverse-brand-hover-color:          lighten($navbar-inverse-link-color, 10%) !default;
-$navbar-inverse-brand-hover-bg:             transparent !default;
+$navbar-inverse-brand-hover-color:          $navbar-inverse-link-hover-color !default;
+$navbar-inverse-brand-hover-bg:             $navbar-inverse-link-hover-bg;
 
 // Inverted navbar toggle
 $navbar-inverse-toggle-hover-bg:            #333 !default;
@@ -873,6 +873,8 @@ $hr-border:                   $gray-lighter !default;
 // endbower
 
 
+
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -894,7 +896,9 @@ body {
 
 /* Custom page header */
 .header {
-
+	.navbar-brand {
+		font-weight: 700;
+	}
   /* Make the masthead heading the same height as the navigation */
   h3 {
     margin-top: 0;
@@ -904,10 +908,11 @@ body {
   }
 }
 
-.view-header {
+.page-header {
 	background: $brand-primary;
 	color: white;
-	padding: 15px 0 30px 0;
+	padding: 30px 0 45px 0;
+	margin-top: 0;
 	margin-bottom: 15px;
 	h2 {
 		font-weight: 400;
@@ -934,6 +939,18 @@ body {
     font-size: 21px;
     padding: 14px 24px;
   }
+}
+
+.sources {
+	// display: block;
+	// position: relative;
+	// height: 300px;
+	// overflow: scroll;
+	// border: 1px solid $input-border;
+	// border-radius: $input-border-radius;
+	// padding: 0 14px;
+	margin-bottom: $line-height-computed;
+	margin-top: $line-height-computed;
 }
 
 /* Supporting marketing content */
