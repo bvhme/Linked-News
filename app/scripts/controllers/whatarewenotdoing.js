@@ -118,7 +118,7 @@ angular.module('linkedNewsApp')
                 }
                 return calculateMedianFromArr(valuesArray);
             };
-            $scope.showUnderMedian = true;
+            $scope.showUnderMedian = false;
             $scope.$watch('showUnderMedian', function() {
                 console.log($scope.showUnderMedian);
             });
