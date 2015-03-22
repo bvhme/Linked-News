@@ -32,6 +32,9 @@ module.exports = function(config) {
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/underscore/underscore.js',
       'bower_components/d3/d3.js',
+      'bower_components/heap/lib/heap.js',
+      'bower_components/topojson/topojson.js',
+      'bower_components/d3plus/d3plus.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
