@@ -35,6 +35,13 @@ module.exports = function(config) {
       'bower_components/heap/lib/heap.js',
       'bower_components/topojson/topojson.js',
       'bower_components/d3plus/d3plus.js',
+      'bower_components/bootstrap/dist/js/bootstrap.js',
+      'bower_components/angular-sha1/sha1.js',
+      'bower_components/highlightjs/highlight.pack.js',
+      'bower_components/angular-highlightjs/build/angular-highlightjs.js',
+      'bower_components/angular-bbc-ld/angular-bbc-ld/bbcld.module.js',
+      'bower_components/angular-bbc-ld/angular-bbc-ld/juicer.service.js',
+      'bower_components/angular-bbc-ld/angular-bbc-ld/juicertriplestore.service.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
